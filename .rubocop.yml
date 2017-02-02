@@ -1,0 +1,71 @@
+---
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    collect: map
+    collect!: map!
+    inject: reduce
+    detect: find
+    find_all: select
+Style/NumericPredicate:
+  Enabled: true
+  EnforcedStyle: comparison
+Style/MethodDefParentheses:
+  Enabled: true
+  EnforcedStyle: require_parentheses
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+Style/AndOr:
+  Enabled: true
+Style/HashSyntax:
+  Enabled: true
+  EnforcedStyle: ruby19
+  UseHashRocketsWithSymbolValues: false
+Style/BlockDelimiters:
+  Enabled: true
+  EnforcedStyle: line_count_based
+Style/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: normal
+Style/AlignParameters:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+Style/ClassAndModuleChildren:
+  Enabled: true
+  EnforcedStyle: compact
+Style/EvenOdd:
+  Enabled: false
+Style/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Style/EmptyLinesAroundClassBody:
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+Style/EmptyLinesAroundModuleBody:
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: true
+Style/CommandLiteral:
+  Enabled: true
+  EnforcedStyle: percent_x
+Style/DotPosition:
+  Enabled: true
+  EnforcedStyle: leading
+Style/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+Style/PercentLiteralDelimiters:
+  Enabled: true
+  PreferredDelimiters:
+    "%": "()"
+    "%i": "()"
+    "%q": "()"
+    "%Q": "()"
+    "%r": "{}"
+    "%s": "()"
+    "%w": "()"
+    "%W": "()"
+    "%x": "()"

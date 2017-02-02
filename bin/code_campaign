@@ -1,3 +1,9 @@
 #!/usr/bin/env ruby
 require 'code_campaign/rubocop'
-CodeCampaign::Rubocop::Downloader.get
+case ARGV[0]
+when 'pull'
+  CodeCampaign::Rubocop::Downloader.get
+  puts '`.rubocop.yml` updated.'
+else
+  puts 'Use `code_campaign pull` to pull the latest rubocop configuration.'
+end

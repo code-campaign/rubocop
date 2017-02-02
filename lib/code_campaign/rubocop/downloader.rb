@@ -4,9 +4,10 @@ require 'uri'
 require 'json'
 
 module CodeCampaign::Rubocop::Downloader
-  ROOT_PATH = 'https://code-campaign.herokuapp.com'
+  ROOT_PATH = 'https://code-campaign.herokuapp.com'.freeze
   CONFIGURATION = CodeCampaign::Rubocop::ConfigurationLoader.load
-  RUBOCOP_FILE = '.rubocop.yml'
+  RUBOCOP_FILE = '.rubocop.yml'.freeze
+  SPLIT_COMMENT = "\n# Code Campaign conventions\n".freeze
 
   def self.get
     uri = URI("#{ROOT_PATH}/#{CONFIGURATION.project_id}/ruby/configuration.json?access_token=#{CONFIGURATION.access_token}")
@@ -15,11 +16,10 @@ module CodeCampaign::Rubocop::Downloader
     remote_configuration = YAML.load json_body['configurations'].find { |configuration| configuration['linter'] == 'rubocop' }['content']
 
     rubocop_configuration =
-      File.exists?(RUBOCOP_FILE) ? YAML.load_file(RUBOCOP_FILE) : {}
-
+      File.exist?(RUBOCOP_FILE) ? YAML.load_file(RUBOCOP_FILE) : {}
 
     File.open(RUBOCOP_FILE, 'w') do |file|
-      file.write(remote_configuration.merge(rubocop_configuration).to_yaml)
+      file.write(rubocop_configuration.merge(remote_configuration).to_yaml)
     end
   end
 end
